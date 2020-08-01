@@ -1,0 +1,48 @@
+{% extends 'admin/base.html' %}
+{% block title %}
+    添加景点信息
+{% endblock title %}
+{% block content %}
+    <h2>添加景点信息</h2>
+    <hr>
+    <p style="color: red; font-size: 18px;">{{ warning }}</p>
+    <div class="col-md-6">
+        <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">景点名称</label>
+                <div class="col-sm-10">
+                    <input name="attractionsname" type="text" class="form-control" placeholder="输入景点名称">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">景点价格</label>
+                <div class="col-sm-10">
+                    <input name="attractionsprice" type="number" class="form-control" placeholder="输入景点价格">
+                </div>
+            </div>
+{#            <div class="form-group">#}
+{#                <label class="col-sm-2 control-label">图片链接</label>#}
+{#                <div class="col-sm-10">#}
+{#                    <input name="attractionspicture" type="text" class="form-control" placeholder="输入图片链接">#}
+{#                </div>#}
+{#            </div>#}
+            <div class="form-group">
+                <label class="col-sm-2 control-label">景点详情</label>
+                <div class="col-sm-10">
+                    <textarea name="attractionsinfo" class="form-control" rows="3" wrap="hard"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">上传图片</label>
+                <div class="col-sm-10">
+                    <input name="attractionspicture" type="file" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-info">添加</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

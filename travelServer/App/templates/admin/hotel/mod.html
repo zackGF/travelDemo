@@ -1,0 +1,49 @@
+{% extends 'admin/base.html' %}
+{% block title %}
+    修改酒店信息
+{% endblock title %}
+{% block content %}
+    <h2>修改酒店信息</h2>
+    <hr>
+    <div class="col-md-6">
+        <form class="form-horizontal" action="" method="post">
+            <input type="text" value="{{ hotelInfo.id }}" style="display: none" name="hotelid">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">酒店名称</label>
+                <div class="col-sm-10">
+                    <input name="hotelname" type="text" class="form-control" value="{{ hotelInfo.name }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">酒店价格</label>
+                <div class="col-sm-10">
+                    <input name="hotelprice" type="number" class="form-control" value="{{ hotelInfo.price }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">图片链接</label>
+                <div class="col-sm-10">
+                    <input name="hotelpicture" type="text" class="form-control" value="{{ hotelInfo.picture_link }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">酒店详情</label>
+                <div class="col-sm-10">
+                    <textarea name="hotelinfo" class="form-control" rows="3" wrap="hard">{{ hotelInfo.info }}</textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">当前图片</label>
+                <div class="col-sm-10">
+                    <img src="{{ hotelInfo.picture_link }}" alt="">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-info">修改</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

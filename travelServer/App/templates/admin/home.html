@@ -1,0 +1,41 @@
+{% extends 'admin/base.html' %}
+{% block title %}
+    用户管理
+{% endblock title %}
+{% block content %}
+    <h1>用户管理</h1>
+    <table class="table table-striped">
+        <thead>
+        <th>编号</th>
+        <th>账号(手机号码)</th>
+        <th>当前状态</th>
+        <th>操作</th>
+        </thead>
+        <tbody>
+        {% for user in userList %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.phone }}</td>
+                <td>
+                    {% if user.status %}
+                        <span style="background: #11ff16;padding: 5px 10px;border-radius: 15px;color: white;font-size: 12px">活跃</span>
+                    {% else %}
+                        <span style="background: red;padding: 5px 10px;border-radius: 15px;color: white;font-size: 12px">禁封</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if user.status %}
+                        <a href="/root/userBan?userid={{ user.id }}" class="btn btn-danger btn-xs">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    {% else %}
+                        <a href="/root/userAct?userid={{ user.id }}" class="btn btn-success btn-xs">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

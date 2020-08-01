@@ -1,0 +1,32 @@
+{% extends 'admin/base.html' %}
+{% block title %}
+    酒店管理
+{% endblock title %}
+{% block content %}
+    <h1>酒店管理</h1>
+    <a href="/root/adminHotel_add" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus"></span>添加新酒店
+    </a>
+    <hr>
+    <div class="row">
+        {% for hotel in hotelList %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="{{ hotel.picture_link }}" alt="...">
+
+                    <div class="caption">
+                        <div style="display: flex; align-items: center; flex-direction: row">
+                            <h3>{{ hotel.name }}</h3> &nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;color: #ce201d">${{ hotel.price }}</span>
+                        </div>
+
+                        <p>{{ hotel.info }}</p>
+                        <p>
+                            <a href="/root/adminHotel_mod?hotelid={{ hotel.id }}" class="btn btn-primary" role="button">修改</a>
+                            <a href="/root/adminHotel_del/{{ hotel.id }}" class="btn btn-warning" role="button">删除</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

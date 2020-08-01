@@ -1,0 +1,48 @@
+{% extends 'admin/base.html' %}
+{% block title %}
+    修改景点信息
+{% endblock title %}
+{% block content %}
+    <h2>修改景点信息</h2>
+    <hr>
+    <div class="col-md-6">
+        <form class="form-horizontal" action="" method="post">
+            <input type="text" value="{{ attractionsInfo.id }}" style="display: none" name="attractionsid">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">景点名称</label>
+                <div class="col-sm-10">
+                    <input name="attractionsname" type="text" class="form-control" value="{{ attractionsInfo.name }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">景点价格</label>
+                <div class="col-sm-10">
+                    <input name="attractionsprice" type="number" class="form-control" value="{{ attractionsInfo.price }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">图片链接</label>
+                <div class="col-sm-10">
+                    <input name="attractionspicture" type="text" class="form-control" value="{{ attractionsInfo.picture_link }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">景点详情</label>
+                <div class="col-sm-10">
+                    <textarea name="attractionsinfo" class="form-control" rows="3" wrap="hard">{{ attractionsInfo.info }}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">当前图片</label>
+                <div class="col-sm-10">
+                    <img src="{{ attractionsInfo.picture_link }}" alt="">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-info">修改</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends 'admin/base.html' %}
+{% block title %}
+    景点评论管理
+{% endblock title %}
+{% block content %}
+    <h1>景点评论管理</h1>
+    <hr>
+    <table class="table table-striped">
+        <thead>
+        <th>#</th>
+{#        <th>文章编号</th>#}
+        <th>文章名字</th>
+        <th>评论内容</th>
+        <th>评论用户</th>
+        <th>操作</th>
+        </thead>
+        <tbody>
+        {% for comm in comm_list %}
+            <tr>
+                <td>{{ comm.id }}</td>
+                <td>{{ comm.attrname }}</td>
+                <td><input type="text" value="{{ comm.info }}" disabled> </td>
+                <td>{{ comm.user_phone }}</td>
+                <td>
+                    <a href="/root/attrBan?commid={{ comm.id }}" class="btn btn-danger btn-xs">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

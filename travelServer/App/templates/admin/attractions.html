@@ -1,0 +1,33 @@
+{% extends 'admin/base.html' %}
+{% block title %}
+    旅游景点管理
+{% endblock title %}
+{% block content %}
+    <h1>旅游景点管理</h1>
+    <hr>
+<a href="/root/adminAttractions_add" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus"></span>添加新景点
+    </a>
+    <hr>
+    <div class="row">
+        {% for attractions in attractionsList %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="{{ attractions.picture_link }}" alt="...">
+
+                    <div class="caption">
+                        <div style="display: flex; align-items: center; flex-direction: row">
+                            <h3>{{ attractions.name }}</h3> &nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 18px;color: #ce201d">${{ attractions.price }}</span>
+                        </div>
+
+                        <p>{{ attractions.info }}</p>
+                        <p>
+                            <a href="/root/adminAttractions_mod?attractionsid={{ attractions.id }}" class="btn btn-primary" role="button">修改</a>
+                            <a href="/root/adminAttractions_del/{{ attractions.id }}" class="btn btn-warning" role="button">删除</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
